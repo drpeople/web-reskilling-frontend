@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.custom-button {
+  @apply bg-black text-white font-bold py-1 px-6 rounded;
+}
+.page-link {
+  @apply text-black font-bold;
+}
+
+.social-icons {
+  @apply flex space-x-4;
+}
+.social-icon-size {
+  @apply [&>svg]:h-5 [&>svg]:w-5;
+}
+
+.title {
+  @apply text-lg font-bold mb-4;
+}
