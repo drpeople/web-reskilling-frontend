@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  // State to manage the menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Function to toggle the menu
@@ -14,7 +14,8 @@ function Navbar() {
     const handleResize = () => {
       // Reset the menu when the screen is medium or larger
       if (window.innerWidth >= 768) {
-        setIsMenuOpen(false); // Close the mobile menu on larger screens
+        // Close the mobile menu on larger screens
+        setIsMenuOpen(false);
       }
     };
 
@@ -28,36 +29,52 @@ function Navbar() {
   }, []);
 
   return (
-    <div>
-      <header className="flex justify-between items-center p-4 ">
-        {/* Site Name */}
-        <h3 className="font-bold text-lg">Site Name</h3>
+    <div className="p-4">
+      <div className="flex justify-between items-center">
+        <h3 className="font-bold text-lg">Web Reskilling</h3>
 
-        {/* Hamburger Menu (visible on small screens) */}
-        <button className="text-3xl md:hidden" onClick={toggleMenu}>
-          &#9776; {/* Hamburger icon */}
-        </button>
-
-        {/* Menu Links (visible on larger screens, hidden on smaller) */}
-        <div
-          className={`${
-            isMenuOpen ? "block" : "hidden"
-          } md:flex md:space-x-4 absolute md:static top-16 right-0 w-full md:w-auto  md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out`}
-        >
-          <a className="block md:inline-block page-link mb-2 md:mb-0" href="">
+        <div className="hidden md:flex space-x-4">
+          <a className="page-link" href="">
             Page 1
           </a>
-          <a className="block md:inline-block page-link mb-2 md:mb-0" href="">
+          <a className="page-link" href="">
             Page 2
           </a>
-          <a className="block md:inline-block page-link mb-2 md:mb-0" href="">
+          <a className="page-link" href="">
             Page 3
           </a>
-          <button className="block md:inline-block custom-button">
-            Button
+          <button className="custom-button">
+            <Link to="/">HOME </Link>
           </button>
         </div>
-      </header>
+
+        {/* Hamburger Menu Button (visible on small screens) */}
+        <button className="text-3xl md:hidden" onClick={toggleMenu}>
+          &#9776;
+        </button>
+      </div>
+
+      {/* Dropdown Menu (show when the menu is open on small screens) */}
+      <div
+        className={`${
+          isMenuOpen ? "block" : "hidden"
+        } md:hidden transition-all duration-300 ease-in-out`}
+      >
+        <div className="flex flex-col items-center space-y-4 mt-4">
+          <a className="page-link" href="">
+            Page 1
+          </a>
+          <a className="page-link" href="">
+            Page 2
+          </a>
+          <a className="page-link" href="">
+            Page 3
+          </a>
+          <button className="custom-button">
+            <Link to="/"> Home</Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

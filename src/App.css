@@ -4,20 +4,50 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
 .custom-button {
-  @apply bg-black text-white font-bold py-1 px-6 rounded;
+  @apply bg-black text-white font-bold rounded p-2;
 }
 .page-link {
-  @apply text-black font-bold;
+  @apply text-black font-bold p-2;
 }
 
 .social-icons {
-  @apply flex space-x-4;
-}
-.social-icon-size {
-  @apply [&>svg]:h-5 [&>svg]:w-5;
+  @apply flex space-x-4 text-gray-400 lg:py-12;
 }
 
 .title {
   @apply text-lg font-bold mb-4;
+}
+
+.site-name {
+  @apply flex items-center justify-between p-4 transition-all duration-300;
+}
+
+.footer {
+  @apply flex flex-col xl:px-4 md:flex-row justify-between items-center gap-12 px-12 md:px-12 w-full;
+}
+
+.footer-urls {
+  @apply flex flex-col gap-8 md:flex-row;
+}
+.border-line {
+  @apply border-t border-gray-300 w-full mb-6;
+}
+
+.tile-image {
+  @apply p-2 w-9/12 md:w-8/12 hover:w-9/12 duration-300 transition-all h-auto object-cover rounded;
+}
+
+.double-image-position {
+  @apply flex flex-col xl:px-4 lg:flex-row justify-center items-center gap-4 px-12 lg:px-12 w-full;
+}
+
+.grid-tile {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 text-center;
 }
